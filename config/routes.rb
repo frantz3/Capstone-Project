@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
-  resources :user_exercises
-  resources :workout_exercises
-  resources :workouts
-  resources :exercises
-  resources :users
-  get '/hello', to: 'application#hello_world'
 
-  get '*path',
-      to: 'fallback#index',
-      constraints: ->(req) { !req.xhr? && req.format.html? }
+  # resources :workouts
+  resources :exercises
+  # resources :users
+ 
+
+  get '/me', to:  "users#index"
+  post '/signup', to: 'users#create'
+
+  # get '/exercises', to: "exercises#index"
+
+
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 end
