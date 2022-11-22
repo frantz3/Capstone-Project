@@ -27,12 +27,12 @@ end
     name = Faker::Name.name
     exercise_id = Exercise.all.sample.id
 
-    5.times do
+
     workout = Workout.create(
         name: name,
         exercise_id: exercise_id )
         user.workouts << workout
-    end
+
 end
 
 

@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
     def create
     user = User.create(user_params)
-
+# binding.pry
     if user && user.valid?
 
         session[:user_id] = user.id
@@ -21,6 +21,6 @@ end
     private
 
     def user_params
-        params.require(:user).permit(:username, :email, :first_name, :last_name, :password, :password_confirmation)
+        params.permit(:username, :email, :first_name, :last_name, :password, :password_confirmation)
     end
 end
