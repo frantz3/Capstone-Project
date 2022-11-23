@@ -88,7 +88,7 @@ function Login({ setUser, errors, setErrors }) {
                 <a href="/signup">Register</a>
               </div>
 
-              <MDBBtn className="mb-4 w-100"  href="/signup" onClick={handleLogin}>
+              <MDBBtn className="mb-4 w-100"  href="/home" onClick={handleLogin}>
                 Sign in
               </MDBBtn>
             </MDBCardBody>
