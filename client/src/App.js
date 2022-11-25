@@ -11,6 +11,7 @@ function App() {
   const [user, setUser] = useState(null);
   const [errors, setErrors] = useState([]);
   const [exercises, setExercises] = useState([]);
+  const [loggedIn, setLoggedIn] = useState(false)
 
   useEffect(() => {
     fetch("/exercises")
@@ -23,7 +24,7 @@ function App() {
       <BrowserRouter>
         <div>
           <div className="wrapper">...</div>
-          <Navbar user={user} setUser={setUser} className="APP" />
+          <Navbar user={user} setUser={setUser} loggedIn={loggedIn} setLoggedIn={setLoggedIn}  />
         </div>
         <Routes>
           <Route path="/signup" element={<Signup setUser={setUser} />} />

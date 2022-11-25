@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import {
   MDBBtn,
   MDBContainer,
@@ -10,8 +11,10 @@ import {
   MDBInput,
   MDBCheckbox,
 } from "mdb-react-ui-kit";
+import { useNavigate } from "react-router-dom";
 
 function Login({ setUser, errors, setErrors }) {
+  const navigate = useNavigate();
   const [login, setLogin] = useState({
     username: "",
     password: "",
@@ -38,6 +41,7 @@ function Login({ setUser, errors, setErrors }) {
       } else {
         res.json().then(({ errors }) => setErrors(errors));
       }
+      navigate('/home')
     });
   }
 
@@ -88,9 +92,9 @@ function Login({ setUser, errors, setErrors }) {
                 <a href="/signup">Register</a>
               </div>
 
-              <MDBBtn className="mb-4 w-100" onClick={handleLogin}>Sign in
-              <a href="/home" >Sign In</a>
-          
+              <MDBBtn className="mb-4 w-100" onClick={handleLogin}>
+                Sign in
+         
               </MDBBtn>
             </MDBCardBody>
           </MDBCol>
