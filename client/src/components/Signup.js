@@ -7,7 +7,7 @@ import {
   MDBCol,
   MDBRow,
   MDBInput,
-  MDBIcon,
+
 } from "mdb-react-ui-kit";
 
 function Signup({ setUser }) {
@@ -124,40 +124,9 @@ function Signup({ setUser }) {
             type="password"
           />
 
-          <MDBBtn className="w-100 mb-4" size="md" onClick={handleSubmit}>
+          <MDBBtn className="w-100 mb-4" size="md" onClick={handleSubmit} href="/home">
             sign up
           </MDBBtn>
-
-          <div className="text-center">
-            <p>or sign up with:</p>
-
-            <MDBBtn
-              tag="a"
-              color="none"
-              className="mx-3"
-              style={{ color: "#1266f1" }}
-            >
-              <MDBIcon fab icon="facebook-f" size="sm" />
-            </MDBBtn>
-
-            <MDBBtn
-              tag="a"
-              color="none"
-              className="mx-3"
-              style={{ color: "#1266f1" }}
-            >
-              <MDBIcon fab icon="twitter" size="sm" />
-            </MDBBtn>
-
-            <MDBBtn
-              tag="a"
-              color="none"
-              className="mx-3"
-              style={{ color: "#1266f1" }}
-            >
-              <MDBIcon fab icon="google" size="sm" />
-            </MDBBtn>
-          </div>
         </MDBCardBody>
       </MDBCard>
     </MDBContainer>
