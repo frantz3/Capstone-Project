@@ -54,3 +54,7 @@ gem "pry", "~> 0.14.1"
 gem "uri", "~> 0.11.0"
 
 gem "openssl", "~> 3.0"
+
+gem "faker", "~> 3.0"
+
+gem "net-http"

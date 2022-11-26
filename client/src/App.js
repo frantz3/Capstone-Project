@@ -1,25 +1,43 @@
 // client/src/components/App.js
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Signup from "./components/Signup";
+import Login from "./components/Login";
+import Home from "./components/Home";
+import Navbar from "./components/NavBar";
+
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [user, setUser] = useState(null);
+  const [errors, setErrors] = useState([]);
+  const [exercises, setExercises] = useState([]);
+  const [loggedIn, setLoggedIn] = useState(false)
 
   useEffect(() => {
-    fetch("/hello")
+    fetch("/exercises")
       .then((r) => r.json())
-      .then((data) => setCount(data.count));
+      .then((exercises) => setExercises(exercises));
   }, []);
 
   return (
-    <BrowserRouter>
-      <div className="App">
+    <>
+      <BrowserRouter>
+        <div>
+          <div className="wrapper">...</div>
+          <Navbar user={user} setUser={setUser} loggedIn={loggedIn} setLoggedIn={setLoggedIn}  />
+        </div>
         <Routes>
-          <Route path="/testing" element={<h1>Test Route</h1>} />
-          <Route path="/" element={ <h1>Page Count: {count}</h1>} />
+          <Route path="/signup" element={<Signup setUser={setUser} />} />
+          <Route
+            path="/login"
+            element={
+              <Login setUser={setUser} setErrors={setErrors} errors={errors} />
+            }
+          />
+          <Route path="/home" element={<Home exercises={exercises} />} />
         </Routes>
-      </div>
-    </BrowserRouter>
+      </BrowserRouter>
+    </>
   );
 }
 

@@ -1,5 +1,6 @@
 class Workout < ApplicationRecord
-    has_many :exercises
+    belongs_to :user
+    belongs_to :exercise
 
-    validates :exercises, presence: true
+    validates :name, presence: true,  length: { maximum: 20}
 end
