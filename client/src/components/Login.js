@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import {
   MDBBtn,
@@ -11,14 +12,15 @@ import {
   MDBInput,
   MDBCheckbox,
 } from "mdb-react-ui-kit";
-import { useNavigate } from "react-router-dom";
 
 function Login({ setUser, errors, setErrors }) {
-  const navigate = useNavigate();
+
   const [login, setLogin] = useState({
     username: "",
     password: "",
   });
+  const navigate = useNavigate();
+
   const handleInputChange = (e) => {
     const stateCopy = { ...login };
     stateCopy[e.target.name] = e.target.value;
@@ -41,7 +43,7 @@ function Login({ setUser, errors, setErrors }) {
       } else {
         res.json().then(({ errors }) => setErrors(errors));
       }
-      navigate('/home')
+      navigate('/')
     });
   }
 
