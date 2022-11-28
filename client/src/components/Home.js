@@ -14,11 +14,10 @@ export default function Home({ exercises }) {
   const handleSearch = (event) => {
     const query = event.target.value;
     setSearchQuery(query);
-    
+
     const searchList = exercises.filter((exercise) => {
       return exercise.name.toLowerCase().indexOf(query.toLowerCase()) !== -1;
     });
-
 
     setFilteredList(searchList);
   };
@@ -40,7 +39,26 @@ export default function Home({ exercises }) {
 
         {filteredList.map((exerciseObj) => {
           return (
-            <Card sx={{ maxWidth: 345 }}>
+            <Card
+              sx={{ maxWidth: 345 }}
+              style={{
+                boxSizing: "border-box",
+                float: "left",
+                padding: "10px",
+                display: "flex",
+                flexDirection: "row",
+                textAlign: "center",
+                margin: "20px",
+                display: "block",
+                width: "200px",
+                height: "500px",
+                maxHeight: "500px",
+                maxWidth: "500px",
+             
+            
+
+              }}
+            >
               <CardHeader title={exerciseObj.name} />
               <CardMedia
                 component="img"

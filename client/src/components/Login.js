@@ -43,8 +43,8 @@ function Login({ setUser, errors, setErrors }) {
       } else {
         res.json().then(({ errors }) => setErrors(errors));
       }
-      navigate('/')
     });
+    navigate('/')
   }
 
   return (
