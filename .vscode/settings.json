@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
         "flexbox"
-    ]
+    ],
+    "git.ignoreLimitWarning": true
 }
