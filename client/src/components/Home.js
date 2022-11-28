@@ -1,5 +1,5 @@
-import * as React from "react";
 import { useState } from "react";
+import * as React from "react";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
@@ -14,10 +14,11 @@ export default function Home({ exercises }) {
   const handleSearch = (event) => {
     const query = event.target.value;
     setSearchQuery(query);
-
+    
     const searchList = exercises.filter((exercise) => {
       return exercise.name.toLowerCase().indexOf(query.toLowerCase()) !== -1;
     });
+
 
     setFilteredList(searchList);
   };
