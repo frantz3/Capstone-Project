@@ -1,5 +1,5 @@
 // client/src/components/App.js
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
@@ -34,7 +34,7 @@ function App() {
               <Login setUser={setUser} setErrors={setErrors} errors={errors} />
             }
           />
-          <Route path="/home" element={<Home exercises={exercises} />} />
+          <Route path="/" element={<Home exercises={exercises} />} />
         </Routes>
       </BrowserRouter>
     </>
