@@ -5,6 +5,16 @@ class UsersController < ApplicationController
         render json: users
     end
 
+    def show
+        # find the current logged in user by session user_id
+        # if we find the current logged in user
+            # render current logged in user
+        # else 
+            # send an error
+            # binding.pry
+            render json: @current_user
+    end
+
     def create
     user = User.create(user_params)
 # binding.pry
