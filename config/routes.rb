@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :exercises
   # resources :users
  
+ 
+  post '/workouts', to:  "workouts#create"
 
   get '/me', to:  "users#show"
   post '/signup', to: 'users#create'

@@ -46,7 +46,7 @@ function Login({ setUser, errors, setErrors }) {
     });
     navigate('/')
   }
-
+  console.log(errors)
   return (
     <MDBContainer className="my-5">
       <MDBCard>

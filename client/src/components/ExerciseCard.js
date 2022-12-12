@@ -8,10 +8,15 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 
 
+
 function ExerciseCard({exerciseObj, workout}) {
     const [showWorkouts, setShowWorkouts] = useState(false);
 
     return (
+      <div>
+     
+
+  
     <Card
       key={exerciseObj.id}
       sx={{ maxWidth: 345 }}
@@ -19,7 +24,7 @@ function ExerciseCard({exerciseObj, workout}) {
         boxSizing: "border-box",
         float: "left",
         padding: "10px",
-
+        
         flexDirection: "row",
         textAlign: "center",
         margin: "20px",
@@ -29,7 +34,7 @@ function ExerciseCard({exerciseObj, workout}) {
         maxHeight: "500px",
         maxWidth: "500px",
       }}
-    >
+      >
       <div>
 
       <button
@@ -40,18 +45,19 @@ function ExerciseCard({exerciseObj, workout}) {
         +
       </button>
       </div>
-      {showWorkouts
+      {/* {showWorkouts
         ? workout.map((w) => {
-          return <div>{w.name}</div>;
-          })
-        : null}
+          
+          return <button>{w.name}</button>;
+        })
+        : null} */}
       <CardHeader title={exerciseObj.name} />
       <CardMedia
         component="img"
         height="194"
         image={exerciseObj.gifUrl}
         alt={exerciseObj.name}
-      />
+        />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
           <p>Name: {exerciseObj.name}</p>
@@ -60,6 +66,7 @@ function ExerciseCard({exerciseObj, workout}) {
         </Typography>
       </CardContent>
     </Card>
+        </div>
   );
 }
 

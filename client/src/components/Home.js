@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
 import * as React from "react";
 import ExerciseCard from "./ExerciseCard";
 
-export default function Home({ exercises, workout, searchQuery, searchList, handleSearch }) {
- 
-  
+export default function Home({
+  workout,
+  searchQuery,
+  searchList,
+  handleSearch,
+}) {
   return (
     <div className="container">
       <h2>Search Filter Array of Objects</h2>
@@ -20,9 +22,7 @@ export default function Home({ exercises, workout, searchQuery, searchList, hand
           />
         </div>
         {searchList.map((exerciseObj) => {
-          return (
-            <ExerciseCard exerciseObj={exerciseObj} workout={workout} /> 
-          )
+          return <ExerciseCard exerciseObj={exerciseObj} workout={workout} />;
         })}
       </div>
     </div>
