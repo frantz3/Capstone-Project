@@ -1,6 +1,6 @@
 class ExercisesController < ApplicationController
     def index
-        exercise = Exercise.all
+        exercise = Exercise.limit(30)
         render json: exercise
     end
 

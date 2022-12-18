@@ -10,17 +10,21 @@ def user_workouts
     new_hash = {}
     found = new_workouts.find {|nw| nw[w.name]}
     if found
+  # binding.pry
+  found[w.name].push(w.exercise)
+else 
   
-      found[w.name].push(w.exercise)
-    else 
- 
-      new_hash[w.name] = [w.exercise]
-      new_workouts.push(new_hash)
-    end
-   
-  new_workouts
+  # binding.pry
+  if !w.exercise.nil?
+    new_hash[w.name] = [w.exercise]
+    new_workouts.push(new_hash)
   end
-# binding.pry
+end
+
+    
+    # binding.pry
+  end
+  new_workouts
 end
 end
  
