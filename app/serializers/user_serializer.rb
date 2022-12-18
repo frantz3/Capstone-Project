@@ -15,16 +15,16 @@ def user_workouts
 else 
   
   # binding.pry
-  if !w.exercise.nil?
+  # if !w.exercise.nil?
     new_hash[w.name] = [w.exercise]
     new_workouts.push(new_hash)
-  end
+  # end
 end
 
     
     # binding.pry
   end
-  new_workouts
+  new_workouts.sort_by {|hash| hash.keys[0].downcase}
 end
 end
  

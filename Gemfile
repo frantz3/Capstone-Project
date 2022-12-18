@@ -59,4 +59,4 @@ gem "faker", "~> 3.0"
 
 gem "net-http"
 
-gem "debugger", "~> 1.6"
+# gem "debugger", "~> 1.6"

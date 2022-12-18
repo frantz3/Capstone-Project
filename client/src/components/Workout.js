@@ -82,14 +82,13 @@ console.log(Object.keys(w)[0])
                 
                 }}>
             <Accordion.Header
-            onClick={(e) => {
-              console.log("header") }}
+          
               style={{ textAlign: "center" }}
             >
               <IconButton
                 aria-label="delete"
                 onClick={(e) => {
-                  e.stopPropagation() 
+                 
                   handleDeleteClick()
                 }}
                 style={{ color: "#79031D" }}
@@ -116,11 +115,12 @@ console.log(Object.keys(w)[0])
               </p>
             </Accordion.Header>
             <Accordion.Body >
-              {Object.values(w)[0].map((exercise) => {
+              {Object.values(w)[0].map((exercise, index) => {
+                // debugger
                 return (
                   <div>
                     <Card
-                      key={exercise.id}
+                      key={index}
                       sx={{ maxWidth: 345 }}
                       style={{
                         boxSizing: "border-box",

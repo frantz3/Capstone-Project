@@ -37,9 +37,9 @@ body.each  do |e|
 
 end
 
+user = User.create(username: "qwertyu", email: "qwertyu@aol.com", password: "123")
 5.times do
-    user = User.create(username: "qwertyu", email: "qwertyu@aol.com", password: "123")
-    100.times do
+   
 
     name = Faker::Name.name
     exercise_id = Exercise.all.sample.id
@@ -48,7 +48,7 @@ end
         name: name,
         exercise_id: exercise_id )
         user.workouts << workout
-    end
+    
 
 end
 

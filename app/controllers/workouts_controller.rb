@@ -17,7 +17,7 @@ class WorkoutsController < ApplicationController
    
    
         render json: workout
-        end
+    end
 
     def show
         workouts = Workout.find_by(id: params[:id])
@@ -25,13 +25,17 @@ class WorkoutsController < ApplicationController
     end
 
     def update
-        workouts = Workout.where(name: params[:old_name])
+        user = User.find(session[:user_id])
+        # workouts = Workout.where(name: params[:old_name])
+        workouts = user.workouts.filter do |w|
+            w.name == params[:old_name]
+        end
         # binding.pry
         workouts.each do |w| 
             w.update(name: params[:name])
         end
-
-        render json: workouts
+        # binding.pry
+        render json: {old_name: params[:old_name], name: params[:name]}, status: :ok
 
     end
 

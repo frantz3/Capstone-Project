@@ -32,11 +32,14 @@ const { user ,setUser } = useContext(UserContext)
         const userCopy = JSON.parse(JSON.stringify(user))
         const newWorkout = {}
         newWorkout[data.name] = []
+        // debugger
         userCopy.user_workouts.push(newWorkout)
+        console.log(userCopy)
         setUser(userCopy)
+        navigate('/workouts')
       });
 
-    setWorkout({name: ""});
+    // setWorkout({name: ""});
     // navigate("/")
   };
 
