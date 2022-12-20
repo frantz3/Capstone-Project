@@ -1,14 +1,19 @@
 Rails.application.routes.draw do
+  resources :calcs
 
-  resources :workouts
+  resources :workouts, only: [:index, :show, :update, :create]
   resources :exercises
   # resources :users
  
-
-  get '/me', to:  "users#index"
+ get '/calculator', to: 'calcs#index'
+  post '/workouts', to:  "workouts#create"
+  delete '/workouts/:name', to: 'workouts#destroy'
+  get '/me', to:  "users#show"
   post '/signup', to: 'users#create'
 
-  # get '/exercises', to: "exercises#index"
+  post '/add-exercise', to: 'workouts#add_exercise'
+
+
 
 
   post '/login', to: 'sessions#create'
