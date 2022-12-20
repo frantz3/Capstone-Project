@@ -1,24 +1,20 @@
-# README
+# Workout Tracker
+Currently the workout tracker allows you to create a workout and add exercises to it.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+I plan on adding more features in the near future.
 
-Things you may want to cover:
+## Run
 
-* Ruby version
+run rails s
+and npm start --prefix client
 
-* System dependencies
+## Contributing
 
-* Configuration
+Pull requests are welcome. For major changes, please open an issue first
+to discuss what you would like to change.
 
-* Database creation
+Please make sure to update tests as appropriate.
 
-* Database initialization
+## License
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[MIT]

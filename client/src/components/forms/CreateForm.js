@@ -2,7 +2,7 @@ import React, { useState,useContext } from "react";
 import { useNavigate } from "react-router";
 import { UserContext } from "../../Context/UserProvider";
 
-function CreateForm({ setWorkout, exercises }) {
+function CreateForm() {
   const [formData, setFormData] = useState({
     name: "",
   });
