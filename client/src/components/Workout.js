@@ -13,23 +13,19 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
 import EditIcon from "@mui/icons-material/Edit";
 
-function Workout({ workout, setWorkout, exercises, setEditWorkout }) {
+function Workout({ setEditWorkout }) {
   const { user, setUser } = useContext(UserContext);
-  // const [formData, setFormData] = useState(prevState);
-  // const exerciseId = exercises.map((exerciseObj) => {
-  //   return exerciseObj.id
-  // })
+
 
   function handleDeleteWorkout(deletedWorkout) {
-    // const prevState = {
-    //   name: "",
-    //   exercise_id: exerciseId,
-    // };
-    const userCopy = JSON.parse(JSON.stringify(user))
-    console.log(userCopy)
-    const updatedWorkouts = userCopy.user_workouts.filter((w) => Object.keys(w)[0] !== Object.keys(deletedWorkout)[0]);
-    userCopy.user_workouts = updatedWorkouts
-    console.log(userCopy)
+
+    const userCopy = JSON.parse(JSON.stringify(user));
+
+    const updatedWorkouts = userCopy.user_workouts.filter(
+      (w) => Object.keys(w)[0] !== Object.keys(deletedWorkout)[0]
+    );
+    userCopy.user_workouts = updatedWorkouts;
+
     setUser(userCopy);
   }
 
@@ -37,32 +33,11 @@ function Workout({ workout, setWorkout, exercises, setEditWorkout }) {
     function handleDeleteClick() {
       fetch(`/workouts/${Object.keys(w)[0]}`, {
         method: "DELETE",
-      })
-        // .then((r) => r.json())
-        .then(() => handleDeleteWorkout(w));
+      }).then(() => handleDeleteWorkout(w));
     }
-console.log(Object.keys(w)[0])
-    // function handleUpdateClick() {
 
-    //   fetch(`/workouts/${w.id}`, {
-    //     method: "PATCH",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({ name: "", exercise_id: exerciseId }),
-    //   }).then((r) => r.json())
-    //   .then((newName) => console.log(newName))
-    //   ;
-    // }
-    //   <button
-    //   onClick={() => {
-    //     navigate("/workouts");
-    //   }}
-    // >
-    //   Workouts
-    // </button>
     return (
-      <div key={index} >
+      <div key={index}>
         <Accordion
           style={{
             color: "#EDB518",
@@ -70,26 +45,22 @@ console.log(Object.keys(w)[0])
             paddingLeft: "200px",
             paddingRight: "200px",
             textAlign: "center",
-        
           }}
           onClick={(e) => {
-            e.stopPropagation()
-           
-           }}>
-        
-          <Accordion.Item eventKey="0" onClick={(e) => {
-                 console.log("item")
-                
-                }}>
-            <Accordion.Header
-          
-              style={{ textAlign: "center" }}
-            >
+            e.stopPropagation();
+          }}
+        >
+          <Accordion.Item
+            eventKey="0"
+            onClick={(e) => {
+              console.log("item");
+            }}
+          >
+            <Accordion.Header style={{ textAlign: "center" }}>
               <IconButton
                 aria-label="delete"
                 onClick={(e) => {
-                 
-                  handleDeleteClick()
+                  handleDeleteClick();
                 }}
                 style={{ color: "#79031D" }}
               >
@@ -108,13 +79,13 @@ console.log(Object.keys(w)[0])
                   paddingLeft: "520px",
                   fontSize: "20px",
                   fontWeight: "1000",
-                  color: "#EDB518"
+                  color: "#EDB518",
                 }}
               >
                 {Object.keys(w)[0]}
               </p>
             </Accordion.Header>
-            <Accordion.Body >
+            <Accordion.Body>
               {Object.values(w)[0].map((exercise, index) => {
                 // debugger
                 return (
@@ -126,7 +97,7 @@ console.log(Object.keys(w)[0])
                         boxSizing: "border-box",
                         float: "left",
                         padding: "75px",
-                        
+
                         flexDirection: "row",
                         textAlign: "center",
                         margin: "20px",
@@ -135,25 +106,10 @@ console.log(Object.keys(w)[0])
                         height: "500px",
                         maxHeight: "500px",
                         maxWidth: "500px",
-                        border:"solid",
-                        borderColor: "#EDB518"
+                        border: "solid",
+                        borderColor: "#EDB518",
                       }}
                     >
-                      <div>
-                        {/* <button
-                        onClick={() => {
-                          setShowWorkouts(!showWorkouts);
-                        }}
-                        >
-                        +
-                      </button> */}
-                      </div>
-                      {/* {showWorkouts
-                        ? workout.map((w) => {
-                          
-                          return <button>{w.name}</button>;
-                        })
-                      : null} */}
                       <CardHeader
                         title={Object.values(exercise || {})[1]}
                         style={{ marginTop: "-80px" }}
@@ -184,6 +140,6 @@ console.log(Object.keys(w)[0])
       </div>
     );
   });
-  return <div>{listOfWorkouts}</div>;
+  return <div key={listOfWorkouts}>{listOfWorkouts}</div>;
 }
 export default Workout;

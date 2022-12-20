@@ -33,8 +33,3 @@ class ExercisesController < ApplicationController
         end
 end
 
-# t.string "name"
-# t.string "bodypart"
-# t.string "equipment"
-# t.string "gifUrl"
-# t.string "target"

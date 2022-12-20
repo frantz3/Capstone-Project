@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :exercises
   # resources :users
  
- get '/calculator', to: 'calcs#create'
+ get '/calculator', to: 'calcs#index'
   post '/workouts', to:  "workouts#create"
   delete '/workouts/:name', to: 'workouts#destroy'
   get '/me', to:  "users#show"
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   post '/add-exercise', to: 'workouts#add_exercise'
 
-  # get '/exercises', to: "exercises#index"
+
 
 
   post '/login', to: 'sessions#create'

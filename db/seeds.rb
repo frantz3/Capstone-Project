@@ -29,9 +29,7 @@ request["X-RapidAPI-Host"] = 'exercisedb.p.rapidapi.com'
 response = http.request(request)
 body = JSON.parse(response.body)
 
-# bod.each do |c|
-#     Calc.create(age: c[Integer], gender: c["gender"], weight: c[Integer], height: c[Integer], neck: c[Integer], waist: c[Integer], hip: c[Integer])
-# end
+
 body.each  do |e|
      Exercise.create( bodypart: e["bodyPart"], equipment: e["equipment"], gifUrl: e["gifUrl"], name: e["name"], target: e["target"])
 
@@ -54,47 +52,6 @@ end
 
 
 
-# t.string "first_name"
-# t.string "last_name"
-# t.string "password_digest"
-# t.string "username"
-# t.string "email"
-# exercises = JSON.parse(response.body)
 
 
 
-#  exercises.each do |e| 
-
-#      Exercise.create(
-#          bodypart: e["bodyPart"],
-#         equipment: e["equipment"],
-#         gifUrl: e["gifUrl"], 
-#         name: e["name"], 
-#         target: e["target"]
-#     )
-    
-# end
-# binding.pry
-# exercise_id = Exercise.all.sample.id
-  
-
-
-# 5.times do
-#     use = Faker::Internet.user(  "username","password", "email")
-#     user = User.create(use)
-    
-#     5.times do
-#         name = Faker::Name.name
-        
-        
-#         workout = Workout.create(
-#             name: name,
-#             exercise_id: Exercise.ids,
-            
-#         )
-        
-#         user.workouts << workout
-#     end
-    
-# end
-    

@@ -23,15 +23,12 @@ function ExerciseCard({ exerciseObj, workout }) {
       .then((data) => {
         const deepClone = JSON.parse(JSON.stringify(user));
         console.log(deepClone);
-        // Make a deep copy of the user
-        // then access user_workouts on the deep clone
-        // add the exercise from the data to the matching workout array on the deep clone
-        // set user state to the updated deep clone
+
       });
   }
 
   return (
-    <div>
+    <div key={exerciseObj.id}>
       <Card
         key={exerciseObj.id}
         sx={{ maxWidth: 345 }}
@@ -66,6 +63,7 @@ function ExerciseCard({ exerciseObj, workout }) {
           ? workout.map((w) => {
               return (
                 <Button
+                key={w.id}
                   onClick={() => handleAddExercise(w)}
                   style={{
                     margin: "5px",

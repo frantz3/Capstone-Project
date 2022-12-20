@@ -1,4 +1,4 @@
-// client/src/components/App.js
+
 import React, { useState, useEffect, useContext } from "react";
 import { UserContext } from "./Context/UserProvider";
 import { Routes, Route, useNavigate } from "react-router-dom";
@@ -10,6 +10,7 @@ import Workout from "./components/Workout";
 import EditForm from "./components/forms/EditForm";
 import CreateForm from "./components/forms/CreateForm";
 import Landing from "./components/pages/Landing";
+import Calculator from "./components/pages/Calculator";
 
 function App() {
   const [errors, setErrors] = useState([]);
@@ -39,14 +40,10 @@ function App() {
     });
   }, []);
 
-  // useEffect(() => {
-  //   fetch("/me")
-  //     .then((r) => r.json())
-  //     .then((user) => setUser({ ...user }));
-  // }, []);
+
   const handleSearch = (event) => {
     const query = event.target.value;
-    console.log(query);
+  
     setSearchQuery(query);
   };
   const searchList = exercises.filter((exercise) => {
@@ -58,13 +55,6 @@ function App() {
   return (
     <>
       <div>
-        {/* <button
-          onClick={() => {
-            navigate("/workouts");
-          }}
-        >
-          Workouts
-        </button> */}
         <div className="wrapper">...</div>
         <Navbar
           user={user}
@@ -120,6 +110,7 @@ function App() {
           path="/workouts"
           element={<Workout setEditWorkout={setEditWorkout} />}
         />
+        <Route path="/calculator" element={<Calculator />} />
         <Route path="/home" element={<Landing />} />
       </Routes>
     </>

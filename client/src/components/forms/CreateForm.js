@@ -39,8 +39,7 @@ const { user ,setUser } = useContext(UserContext)
         navigate('/workouts')
       });
 
-    // setWorkout({name: ""});
-    // navigate("/")
+
   };
 
   return (

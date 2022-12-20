@@ -21,7 +21,7 @@ console.log(editWorkout)
 
   function handleUpdateClick(e) {
     e.preventDefault();
-    // debugger
+   
     fetch(`/workouts/${Object.keys(editWorkout)[0]}`, {
       method: "PATCH",
       headers: {
@@ -37,14 +37,14 @@ console.log(editWorkout)
         console.log(workoutNames)
         let userCopy = JSON.parse(JSON.stringify(user))
         userCopy.user_workouts = userCopy.user_workouts.map((w) => {
-          // debugger
+         
           if (Object.keys(w)[0] === workoutNames.old_name) {
           return {[workoutNames.name] : Object.values(w)[0]}
           } else {
             return w
           }
         })
-        // debugger
+    
         setUser(userCopy)
         navigate('/workouts')
       });

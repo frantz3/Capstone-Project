@@ -1,7 +1,7 @@
 class CalcsController < ApplicationController
-    skip_before_action :authorize, only: :create
-    def create
-        calculator = Calc.create(calc_params)
+    skip_before_action :authorize, only: :index
+    def index
+        calculator = Calc.all
         render json: calculator
     end
 

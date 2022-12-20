@@ -4,16 +4,15 @@ class WorkoutsController < ApplicationController
         user = User.find(session[:user_id])
    
         render json: user.workouts.uniq {|w| [w.name] }
-        # user.workouts.uniq! {|w| w[:name ]} the goal is to make a unique array of workout
+       
     end
 
     def create
         workout = Workout.new(workout_params)
-        # binding.pry
+    
         workout.user_id = session[:user_id]
         workout.save
-        # binding.pry
-    
+       
    
    
         render json: workout
@@ -26,15 +25,15 @@ class WorkoutsController < ApplicationController
 
     def update
         user = User.find(session[:user_id])
-        # workouts = Workout.where(name: params[:old_name])
+   
         workouts = user.workouts.filter do |w|
             w.name == params[:old_name]
         end
-        # binding.pry
+   
         workouts.each do |w| 
             w.update(name: params[:name])
         end
-        # binding.pry
+      
         render json: {old_name: params[:old_name], name: params[:name]}, status: :ok
 
     end
@@ -44,7 +43,7 @@ class WorkoutsController < ApplicationController
         workouts = user.workouts.filter do |w|
             w.name == params[:name]
         end
-        # binding.pry
+ 
         workouts.each do |workout|
             workout.destroy
         end

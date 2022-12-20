@@ -23,7 +23,7 @@ export default function Home({
           />
         </div>
         {searchList.map((exerciseObj) => {
-          return (<div>
+          return (<div key={exerciseObj.id}>
             <div style={{backgroundImage: "url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNOwfrhpuWJsNGZpPdH6ArUba9I_nHZ0C-PQ&usqp=CAU)"}}></div>
             <ExerciseCard exerciseObj={exerciseObj} workout={workout} />
           </div>)
