@@ -126,7 +126,7 @@ function Signup() {
             type="password"
           />
 
-          <MDBBtn className="w-100 mb-4" size="md" onClick={handleSubmit} href="/">
+          <MDBBtn className="w-100 mb-4" size="md" onClick={handleSubmit} href="/login">
             sign up
           </MDBBtn>
         </MDBCardBody>
